@@ -1,0 +1,2147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MezunVsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="adminID" />
+          </Key>
+          <Property Name="adminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adminKullaniciAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="adminParola" Type="nvarchar" MaxLength="50" />
+          <Property Name="adminYetki" Type="varchar" MaxLength="1" />
+          <Property Name="adminMail" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Arkadas">
+          <Key>
+            <PropertyRef Name="arkadasID" />
+          </Key>
+          <Property Name="arkadasID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciID1" Type="int" />
+          <Property Name="kullaniciID2" Type="int" />
+          <Property Name="arkadaslikOnay" Type="bit" />
+        </EntityType>
+        <EntityType Name="Bildirimler">
+          <Key>
+            <PropertyRef Name="bildirimID" />
+          </Key>
+          <Property Name="bildirimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciID" Type="int" />
+          <Property Name="bildirimAciklama" Type="nvarchar" MaxLength="50" />
+          <Property Name="bildirimZaman" Type="datetime" />
+          <Property Name="bildirimOkunma" Type="bit" />
+          <Property Name="bildirimUrl" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Bolum">
+          <Key>
+            <PropertyRef Name="bolumID" />
+          </Key>
+          <Property Name="bolumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bolumAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="okulID" Type="int" />
+        </EntityType>
+        <EntityType Name="Departman">
+          <Key>
+            <PropertyRef Name="departmanID" />
+          </Key>
+          <Property Name="departmanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="departmanAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsyeriID" Type="int" />
+        </EntityType>
+        <EntityType Name="Engelliler">
+          <Key>
+            <PropertyRef Name="engelID" />
+          </Key>
+          <Property Name="engelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciID" Type="int" />
+          <Property Name="engelliKullanici" Type="int" />
+        </EntityType>
+        <EntityType Name="Etkinlik">
+          <Key>
+            <PropertyRef Name="etkinlikID" />
+          </Key>
+          <Property Name="etkinlikID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uniID" Type="int" />
+          <Property Name="okulID" Type="int" />
+          <Property Name="bolumID" Type="int" />
+          <Property Name="icerik" Type="nvarchar" MaxLength="250" />
+          <Property Name="etkinlikTarihiBaslangıc" Type="datetime" />
+          <Property Name="etkinlikTarihiBitis" Type="datetime" />
+          <Property Name="kullaniciOlusturan" Type="int" />
+        </EntityType>
+        <EntityType Name="Isilanlari">
+          <Key>
+            <PropertyRef Name="ilanID" />
+          </Key>
+          <Property Name="ilanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="isyeriID" Type="int" />
+          <Property Name="departmanID" Type="int" />
+          <Property Name="acıklama" Type="nvarchar" MaxLength="300" />
+          <Property Name="ücret" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Isyeri">
+          <Key>
+            <PropertyRef Name="IsyeriID" />
+          </Key>
+          <Property Name="IsyeriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsyeriAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsyeriAdres" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsyeriTell" Type="nvarchar" MaxLength="50" />
+          <Property Name="sehırID" Type="int" />
+          <Property Name="sektorID" Type="int" />
+          <Property Name="website" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="kullaniciID" />
+          </Key>
+          <Property Name="kullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="isim" Type="nvarchar" MaxLength="50" />
+          <Property Name="soyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="dTarihi" Type="datetime" />
+          <Property Name="hakkimda" Type="nvarchar" MaxLength="250" />
+          <Property Name="sehirID" Type="int" />
+          <Property Name="aktifmi" Type="bit" />
+          <Property Name="resim" Type="varbinary(max)" />
+          <Property Name="onay" Type="bit" />
+          <Property Name="uyeKoduZaman" Type="datetime" />
+          <Property Name="uyeKodu" Type="nvarchar" MaxLength="8" />
+          <Property Name="cinsiyet" Type="nchar" MaxLength="5" />
+          <Property Name="isBilgisi" Type="nvarchar" MaxLength="50" />
+          <Property Name="gosterilenMail" Type="nvarchar" MaxLength="50" />
+          <Property Name="facebookURL" Type="nvarchar" MaxLength="50" />
+          <Property Name="twitterURL" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KullaniciIsGecmisi">
+          <Key>
+            <PropertyRef Name="isID" />
+          </Key>
+          <Property Name="isID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciID" Type="int" />
+          <Property Name="isGirisTarihi" Type="datetime" />
+          <Property Name="isCikisTarihi" Type="datetime" />
+          <Property Name="IsyeriID" Type="int" />
+          <Property Name="departmanID" Type="int" />
+          <Property Name="pozisyon" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Mesaj">
+          <Key>
+            <PropertyRef Name="mesajID" />
+          </Key>
+          <Property Name="mesajID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciIDGonderen" Type="int" />
+          <Property Name="kullaniciIDAlan" Type="int" />
+          <Property Name="mesajIcerik" Type="nvarchar" MaxLength="500" />
+          <Property Name="mesajZaman" Type="datetime" />
+          <Property Name="mesajOkunma" Type="bit" />
+          <Property Name="mesajGrup" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OkulFakulte">
+          <Key>
+            <PropertyRef Name="okulID" />
+          </Key>
+          <Property Name="okulID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="okulAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="uniID" Type="int" />
+        </EntityType>
+        <EntityType Name="OkunanBolum">
+          <Key>
+            <PropertyRef Name="okunanBolumID" />
+          </Key>
+          <Property Name="okunanBolumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciID" Type="int" />
+          <Property Name="bolumID" Type="int" />
+          <Property Name="girisTarihi" Type="datetime" />
+          <Property Name="cikisTarihi" Type="datetime" />
+          <Property Name="mezunDurumu" Type="bit" />
+        </EntityType>
+        <EntityType Name="Paylasim">
+          <Key>
+            <PropertyRef Name="paylasimID" />
+          </Key>
+          <Property Name="paylasimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="grup" Type="nchar" MaxLength="1" />
+          <Property Name="ogeID" Type="int" />
+          <Property Name="kullaniciID" Type="int" />
+          <Property Name="icerik" Type="nvarchar" MaxLength="250" />
+          <Property Name="tarih" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Referans">
+          <Key>
+            <PropertyRef Name="referansID" />
+          </Key>
+          <Property Name="referansID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciID" Type="int" />
+          <Property Name="etkinlikID" Type="int" />
+          <Property Name="onay" Type="bit" />
+        </EntityType>
+        <EntityType Name="Sehir">
+          <Key>
+            <PropertyRef Name="sehirID" />
+          </Key>
+          <Property Name="sehirID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sehirAd" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sektor">
+          <Key>
+            <PropertyRef Name="SektorID" />
+          </Key>
+          <Property Name="SektorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SektorAd" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Universite">
+          <Key>
+            <PropertyRef Name="uniID" />
+          </Key>
+          <Property Name="uniID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uniAd" Type="nvarchar" MaxLength="75" />
+          <Property Name="sehirID" Type="int" />
+        </EntityType>
+        <EntityType Name="Yasaklilar">
+          <Key>
+            <PropertyRef Name="yasakID" />
+          </Key>
+          <Property Name="yasakID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciID" Type="int" />
+          <Property Name="adminID" Type="int" />
+          <Property Name="detay" Type="nvarchar" MaxLength="50" />
+          <Property Name="yasakTarihi" Type="datetime" />
+          <Property Name="yasakSuresi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Yorum">
+          <Key>
+            <PropertyRef Name="yorumID" />
+          </Key>
+          <Property Name="yorumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paylasimID" Type="int" />
+          <Property Name="kullaniciID" Type="int" />
+          <Property Name="icerik" Type="nvarchar" MaxLength="250" />
+          <Property Name="tarih" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MezunVs.dbo.View_1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_1">
+          <Key>
+            <PropertyRef Name="bildirimID" />
+          </Key>
+          <Property Name="bildirimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciID" Type="int" />
+          <Property Name="bildirimAciklama" Type="nvarchar" MaxLength="50" />
+          <Property Name="bildirimZaman" Type="datetime" />
+          <Property Name="bildirimOkunma" Type="bit" />
+          <Property Name="bildirimUrl" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MezunVs.dbo.ViewisBilgisi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewisBilgisi">
+          <Key>
+            <PropertyRef Name="isID" />
+          </Key>
+          <Property Name="isID" Type="int" Nullable="false" />
+          <Property Name="departmanID" Type="int" />
+          <Property Name="departmanAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsyeriID" Type="int" />
+          <Property Name="Expr1" Type="int" />
+          <Property Name="IsyeriAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsyeriAdres" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsyeriTell" Type="nvarchar" MaxLength="50" />
+          <Property Name="sehırID" Type="int" />
+          <Property Name="sektorID" Type="int" />
+          <Property Name="website" Type="nvarchar" MaxLength="50" />
+          <Property Name="sehirAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="SektorAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="pozisyon" Type="nvarchar" MaxLength="50" />
+          <Property Name="isGirisTarihi" Type="datetime" />
+          <Property Name="isCikisTarihi" Type="datetime" />
+          <Property Name="kullaniciID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MezunVs.dbo.ViewMesaj' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewMesaj">
+          <Key>
+            <PropertyRef Name="mesajID" />
+          </Key>
+          <Property Name="mesajID" Type="int" Nullable="false" />
+          <Property Name="kullaniciIDGonderen" Type="int" />
+          <Property Name="kullaniciIDAlan" Type="int" />
+          <Property Name="mesajIcerik" Type="nvarchar" MaxLength="500" />
+          <Property Name="mesajZaman" Type="datetime" />
+          <Property Name="mesajOkunma" Type="bit" />
+          <Property Name="isim" Type="nvarchar" MaxLength="50" />
+          <Property Name="soyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="resim" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MezunVs.dbo.ViewOkul' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewOkul">
+          <Key>
+            <PropertyRef Name="okunanBolumID" />
+          </Key>
+          <Property Name="okunanBolumID" Type="int" Nullable="false" />
+          <Property Name="bolumAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="okulID" Type="int" />
+          <Property Name="okulAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="uniID" Type="int" />
+          <Property Name="uniAd" Type="nvarchar" MaxLength="75" />
+          <Property Name="sehirID" Type="int" />
+          <Property Name="sehirAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="kullaniciID" Type="int" />
+          <Property Name="girisTarihi" Type="datetime" />
+          <Property Name="cikisTarihi" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Arkadas_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="Arkadas" Type="Self.Arkadas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Arkadas">
+              <PropertyRef Name="kullaniciID1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Arkadas_Kullanici1">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="Arkadas" Type="Self.Arkadas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Arkadas">
+              <PropertyRef Name="kullaniciID2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bildirimler_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="Bildirimler" Type="Self.Bildirimler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Bildirimler">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bolum_OkulFakulte">
+          <End Role="OkulFakulte" Type="Self.OkulFakulte" Multiplicity="0..1" />
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OkulFakulte">
+              <PropertyRef Name="okulID" />
+            </Principal>
+            <Dependent Role="Bolum">
+              <PropertyRef Name="okulID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departman_Isyeri">
+          <End Role="Isyeri" Type="Self.Isyeri" Multiplicity="0..1" />
+          <End Role="Departman" Type="Self.Departman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Isyeri">
+              <PropertyRef Name="IsyeriID" />
+            </Principal>
+            <Dependent Role="Departman">
+              <PropertyRef Name="IsyeriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engelliler_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="Engelliler" Type="Self.Engelliler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Engelliler">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engelliler_Kullanici1">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="Engelliler" Type="Self.Engelliler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Engelliler">
+              <PropertyRef Name="engelliKullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Etkinlik_Bolum">
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
+          <End Role="Etkinlik" Type="Self.Etkinlik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="bolumID" />
+            </Principal>
+            <Dependent Role="Etkinlik">
+              <PropertyRef Name="bolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Etkinlik_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="Etkinlik" Type="Self.Etkinlik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Etkinlik">
+              <PropertyRef Name="kullaniciOlusturan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Etkinlik_OkulFakulte">
+          <End Role="OkulFakulte" Type="Self.OkulFakulte" Multiplicity="0..1" />
+          <End Role="Etkinlik" Type="Self.Etkinlik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OkulFakulte">
+              <PropertyRef Name="okulID" />
+            </Principal>
+            <Dependent Role="Etkinlik">
+              <PropertyRef Name="okulID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Etkinlik_Universite">
+          <End Role="Universite" Type="Self.Universite" Multiplicity="0..1" />
+          <End Role="Etkinlik" Type="Self.Etkinlik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Universite">
+              <PropertyRef Name="uniID" />
+            </Principal>
+            <Dependent Role="Etkinlik">
+              <PropertyRef Name="uniID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Isilanlari_Departman">
+          <End Role="Departman" Type="Self.Departman" Multiplicity="0..1" />
+          <End Role="Isilanlari" Type="Self.Isilanlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departman">
+              <PropertyRef Name="departmanID" />
+            </Principal>
+            <Dependent Role="Isilanlari">
+              <PropertyRef Name="departmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Isilanlari_Isyeri">
+          <End Role="Isyeri" Type="Self.Isyeri" Multiplicity="0..1" />
+          <End Role="Isilanlari" Type="Self.Isilanlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Isyeri">
+              <PropertyRef Name="IsyeriID" />
+            </Principal>
+            <Dependent Role="Isilanlari">
+              <PropertyRef Name="isyeriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Isyeri_Sehir">
+          <End Role="Sehir" Type="Self.Sehir" Multiplicity="0..1" />
+          <End Role="Isyeri" Type="Self.Isyeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehir">
+              <PropertyRef Name="sehirID" />
+            </Principal>
+            <Dependent Role="Isyeri">
+              <PropertyRef Name="sehırID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Isyeri_Sektor">
+          <End Role="Sektor" Type="Self.Sektor" Multiplicity="0..1" />
+          <End Role="Isyeri" Type="Self.Isyeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sektor">
+              <PropertyRef Name="SektorID" />
+            </Principal>
+            <Dependent Role="Isyeri">
+              <PropertyRef Name="sektorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kullanici_Sehir">
+          <End Role="Sehir" Type="Self.Sehir" Multiplicity="0..1" />
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehir">
+              <PropertyRef Name="sehirID" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="sehirID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KullaniciIsGecmisi_Departman">
+          <End Role="Departman" Type="Self.Departman" Multiplicity="0..1" />
+          <End Role="KullaniciIsGecmisi" Type="Self.KullaniciIsGecmisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departman">
+              <PropertyRef Name="departmanID" />
+            </Principal>
+            <Dependent Role="KullaniciIsGecmisi">
+              <PropertyRef Name="departmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KullaniciIsGecmisi_Isyeri">
+          <End Role="Isyeri" Type="Self.Isyeri" Multiplicity="0..1" />
+          <End Role="KullaniciIsGecmisi" Type="Self.KullaniciIsGecmisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Isyeri">
+              <PropertyRef Name="IsyeriID" />
+            </Principal>
+            <Dependent Role="KullaniciIsGecmisi">
+              <PropertyRef Name="IsyeriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KullaniciIsGecmisi_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="KullaniciIsGecmisi" Type="Self.KullaniciIsGecmisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="KullaniciIsGecmisi">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mesaj_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="Mesaj" Type="Self.Mesaj" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Mesaj">
+              <PropertyRef Name="kullaniciIDGonderen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mesaj_Kullanici1">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="Mesaj" Type="Self.Mesaj" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Mesaj">
+              <PropertyRef Name="kullaniciIDAlan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OkulFakulte_Universite">
+          <End Role="Universite" Type="Self.Universite" Multiplicity="0..1" />
+          <End Role="OkulFakulte" Type="Self.OkulFakulte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Universite">
+              <PropertyRef Name="uniID" />
+            </Principal>
+            <Dependent Role="OkulFakulte">
+              <PropertyRef Name="uniID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OkunanBolum_Bolum">
+          <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
+          <End Role="OkunanBolum" Type="Self.OkunanBolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="bolumID" />
+            </Principal>
+            <Dependent Role="OkunanBolum">
+              <PropertyRef Name="bolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OkunanBolum_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="OkunanBolum" Type="Self.OkunanBolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="OkunanBolum">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paylasim_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="Paylasim" Type="Self.Paylasim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Paylasim">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Referans_Etkinlik">
+          <End Role="Etkinlik" Type="Self.Etkinlik" Multiplicity="0..1" />
+          <End Role="Referans" Type="Self.Referans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etkinlik">
+              <PropertyRef Name="etkinlikID" />
+            </Principal>
+            <Dependent Role="Referans">
+              <PropertyRef Name="etkinlikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Referans_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="Referans" Type="Self.Referans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Referans">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Universite_Sehir">
+          <End Role="Sehir" Type="Self.Sehir" Multiplicity="0..1" />
+          <End Role="Universite" Type="Self.Universite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehir">
+              <PropertyRef Name="sehirID" />
+            </Principal>
+            <Dependent Role="Universite">
+              <PropertyRef Name="sehirID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yasaklilar_Admin">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <End Role="Yasaklilar" Type="Self.Yasaklilar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="adminID" />
+            </Principal>
+            <Dependent Role="Yasaklilar">
+              <PropertyRef Name="adminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yasaklilar_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="Yasaklilar" Type="Self.Yasaklilar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Yasaklilar">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yorum_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="Yorum" Type="Self.Yorum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Yorum">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yorum_Paylasim">
+          <End Role="Paylasim" Type="Self.Paylasim" Multiplicity="0..1" />
+          <End Role="Yorum" Type="Self.Yorum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paylasim">
+              <PropertyRef Name="paylasimID" />
+            </Principal>
+            <Dependent Role="Yorum">
+              <PropertyRef Name="paylasimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MezunVsModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Arkadas" EntityType="Self.Arkadas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bildirimler" EntityType="Self.Bildirimler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bolum" EntityType="Self.Bolum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departman" EntityType="Self.Departman" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Engelliler" EntityType="Self.Engelliler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Etkinlik" EntityType="Self.Etkinlik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Isilanlari" EntityType="Self.Isilanlari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Isyeri" EntityType="Self.Isyeri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KullaniciIsGecmisi" EntityType="Self.KullaniciIsGecmisi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mesaj" EntityType="Self.Mesaj" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OkulFakulte" EntityType="Self.OkulFakulte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OkunanBolum" EntityType="Self.OkunanBolum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paylasim" EntityType="Self.Paylasim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Referans" EntityType="Self.Referans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sehir" EntityType="Self.Sehir" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sektor" EntityType="Self.Sektor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Universite" EntityType="Self.Universite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yasaklilar" EntityType="Self.Yasaklilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yorum" EntityType="Self.Yorum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_1" EntityType="Self.View_1" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_1].[bildirimID] AS [bildirimID], 
+    [View_1].[kullaniciID] AS [kullaniciID], 
+    [View_1].[bildirimAciklama] AS [bildirimAciklama], 
+    [View_1].[bildirimZaman] AS [bildirimZaman], 
+    [View_1].[bildirimOkunma] AS [bildirimOkunma], 
+    [View_1].[bildirimUrl] AS [bildirimUrl]
+    FROM [dbo].[View_1] AS [View_1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewisBilgisi" EntityType="Self.ViewisBilgisi" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewisBilgisi].[isID] AS [isID], 
+    [ViewisBilgisi].[departmanID] AS [departmanID], 
+    [ViewisBilgisi].[departmanAd] AS [departmanAd], 
+    [ViewisBilgisi].[IsyeriID] AS [IsyeriID], 
+    [ViewisBilgisi].[Expr1] AS [Expr1], 
+    [ViewisBilgisi].[IsyeriAd] AS [IsyeriAd], 
+    [ViewisBilgisi].[IsyeriAdres] AS [IsyeriAdres], 
+    [ViewisBilgisi].[IsyeriTell] AS [IsyeriTell], 
+    [ViewisBilgisi].[sehırID] AS [sehırID], 
+    [ViewisBilgisi].[sektorID] AS [sektorID], 
+    [ViewisBilgisi].[website] AS [website], 
+    [ViewisBilgisi].[sehirAd] AS [sehirAd], 
+    [ViewisBilgisi].[SektorAd] AS [SektorAd], 
+    [ViewisBilgisi].[pozisyon] AS [pozisyon], 
+    [ViewisBilgisi].[isGirisTarihi] AS [isGirisTarihi], 
+    [ViewisBilgisi].[isCikisTarihi] AS [isCikisTarihi], 
+    [ViewisBilgisi].[kullaniciID] AS [kullaniciID]
+    FROM [dbo].[ViewisBilgisi] AS [ViewisBilgisi]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewMesaj" EntityType="Self.ViewMesaj" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewMesaj].[mesajID] AS [mesajID], 
+    [ViewMesaj].[kullaniciIDGonderen] AS [kullaniciIDGonderen], 
+    [ViewMesaj].[kullaniciIDAlan] AS [kullaniciIDAlan], 
+    [ViewMesaj].[mesajIcerik] AS [mesajIcerik], 
+    [ViewMesaj].[mesajZaman] AS [mesajZaman], 
+    [ViewMesaj].[mesajOkunma] AS [mesajOkunma], 
+    [ViewMesaj].[isim] AS [isim], 
+    [ViewMesaj].[soyad] AS [soyad], 
+    [ViewMesaj].[resim] AS [resim]
+    FROM [dbo].[ViewMesaj] AS [ViewMesaj]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewOkul" EntityType="Self.ViewOkul" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewOkul].[okunanBolumID] AS [okunanBolumID], 
+    [ViewOkul].[bolumAd] AS [bolumAd], 
+    [ViewOkul].[okulID] AS [okulID], 
+    [ViewOkul].[okulAd] AS [okulAd], 
+    [ViewOkul].[uniID] AS [uniID], 
+    [ViewOkul].[uniAd] AS [uniAd], 
+    [ViewOkul].[sehirID] AS [sehirID], 
+    [ViewOkul].[sehirAd] AS [sehirAd], 
+    [ViewOkul].[kullaniciID] AS [kullaniciID], 
+    [ViewOkul].[girisTarihi] AS [girisTarihi], 
+    [ViewOkul].[cikisTarihi] AS [cikisTarihi]
+    FROM [dbo].[ViewOkul] AS [ViewOkul]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Arkadas_Kullanici" Association="Self.FK_Arkadas_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Arkadas" EntitySet="Arkadas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Arkadas_Kullanici1" Association="Self.FK_Arkadas_Kullanici1">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Arkadas" EntitySet="Arkadas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bildirimler_Kullanici" Association="Self.FK_Bildirimler_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Bildirimler" EntitySet="Bildirimler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bolum_OkulFakulte" Association="Self.FK_Bolum_OkulFakulte">
+            <End Role="OkulFakulte" EntitySet="OkulFakulte" />
+            <End Role="Bolum" EntitySet="Bolum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departman_Isyeri" Association="Self.FK_Departman_Isyeri">
+            <End Role="Isyeri" EntitySet="Isyeri" />
+            <End Role="Departman" EntitySet="Departman" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engelliler_Kullanici" Association="Self.FK_Engelliler_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Engelliler" EntitySet="Engelliler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engelliler_Kullanici1" Association="Self.FK_Engelliler_Kullanici1">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Engelliler" EntitySet="Engelliler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Etkinlik_Bolum" Association="Self.FK_Etkinlik_Bolum">
+            <End Role="Bolum" EntitySet="Bolum" />
+            <End Role="Etkinlik" EntitySet="Etkinlik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Etkinlik_Kullanici" Association="Self.FK_Etkinlik_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Etkinlik" EntitySet="Etkinlik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Etkinlik_OkulFakulte" Association="Self.FK_Etkinlik_OkulFakulte">
+            <End Role="OkulFakulte" EntitySet="OkulFakulte" />
+            <End Role="Etkinlik" EntitySet="Etkinlik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Etkinlik_Universite" Association="Self.FK_Etkinlik_Universite">
+            <End Role="Universite" EntitySet="Universite" />
+            <End Role="Etkinlik" EntitySet="Etkinlik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Isilanlari_Departman" Association="Self.FK_Isilanlari_Departman">
+            <End Role="Departman" EntitySet="Departman" />
+            <End Role="Isilanlari" EntitySet="Isilanlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Isilanlari_Isyeri" Association="Self.FK_Isilanlari_Isyeri">
+            <End Role="Isyeri" EntitySet="Isyeri" />
+            <End Role="Isilanlari" EntitySet="Isilanlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Isyeri_Sehir" Association="Self.FK_Isyeri_Sehir">
+            <End Role="Sehir" EntitySet="Sehir" />
+            <End Role="Isyeri" EntitySet="Isyeri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Isyeri_Sektor" Association="Self.FK_Isyeri_Sektor">
+            <End Role="Sektor" EntitySet="Sektor" />
+            <End Role="Isyeri" EntitySet="Isyeri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kullanici_Sehir" Association="Self.FK_Kullanici_Sehir">
+            <End Role="Sehir" EntitySet="Sehir" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KullaniciIsGecmisi_Departman" Association="Self.FK_KullaniciIsGecmisi_Departman">
+            <End Role="Departman" EntitySet="Departman" />
+            <End Role="KullaniciIsGecmisi" EntitySet="KullaniciIsGecmisi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KullaniciIsGecmisi_Isyeri" Association="Self.FK_KullaniciIsGecmisi_Isyeri">
+            <End Role="Isyeri" EntitySet="Isyeri" />
+            <End Role="KullaniciIsGecmisi" EntitySet="KullaniciIsGecmisi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KullaniciIsGecmisi_Kullanici" Association="Self.FK_KullaniciIsGecmisi_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="KullaniciIsGecmisi" EntitySet="KullaniciIsGecmisi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mesaj_Kullanici" Association="Self.FK_Mesaj_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Mesaj" EntitySet="Mesaj" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mesaj_Kullanici1" Association="Self.FK_Mesaj_Kullanici1">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Mesaj" EntitySet="Mesaj" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OkulFakulte_Universite" Association="Self.FK_OkulFakulte_Universite">
+            <End Role="Universite" EntitySet="Universite" />
+            <End Role="OkulFakulte" EntitySet="OkulFakulte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OkunanBolum_Bolum" Association="Self.FK_OkunanBolum_Bolum">
+            <End Role="Bolum" EntitySet="Bolum" />
+            <End Role="OkunanBolum" EntitySet="OkunanBolum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OkunanBolum_Kullanici" Association="Self.FK_OkunanBolum_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="OkunanBolum" EntitySet="OkunanBolum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paylasim_Kullanici" Association="Self.FK_Paylasim_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Paylasim" EntitySet="Paylasim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Referans_Etkinlik" Association="Self.FK_Referans_Etkinlik">
+            <End Role="Etkinlik" EntitySet="Etkinlik" />
+            <End Role="Referans" EntitySet="Referans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Referans_Kullanici" Association="Self.FK_Referans_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Referans" EntitySet="Referans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Universite_Sehir" Association="Self.FK_Universite_Sehir">
+            <End Role="Sehir" EntitySet="Sehir" />
+            <End Role="Universite" EntitySet="Universite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yasaklilar_Admin" Association="Self.FK_Yasaklilar_Admin">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Yasaklilar" EntitySet="Yasaklilar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yasaklilar_Kullanici" Association="Self.FK_Yasaklilar_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Yasaklilar" EntitySet="Yasaklilar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yorum_Kullanici" Association="Self.FK_Yorum_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Yorum" EntitySet="Yorum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yorum_Paylasim" Association="Self.FK_Yorum_Paylasim">
+            <End Role="Paylasim" EntitySet="Paylasim" />
+            <End Role="Yorum" EntitySet="Yorum" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MezunVsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MezunVsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="MezunVsModel.Admin" />
+          <EntitySet Name="Arkadas" EntityType="MezunVsModel.Arkada" />
+          <EntitySet Name="Bildirimlers" EntityType="MezunVsModel.Bildirimler" />
+          <EntitySet Name="Bolums" EntityType="MezunVsModel.Bolum" />
+          <EntitySet Name="Departmen" EntityType="MezunVsModel.Departman" />
+          <EntitySet Name="Engellilers" EntityType="MezunVsModel.Engelliler" />
+          <EntitySet Name="Etkinliks" EntityType="MezunVsModel.Etkinlik" />
+          <EntitySet Name="Isilanlaris" EntityType="MezunVsModel.Isilanlari" />
+          <EntitySet Name="Isyeris" EntityType="MezunVsModel.Isyeri" />
+          <EntitySet Name="Kullanicis" EntityType="MezunVsModel.Kullanici" />
+          <EntitySet Name="KullaniciIsGecmisis" EntityType="MezunVsModel.KullaniciIsGecmisi" />
+          <EntitySet Name="Mesajs" EntityType="MezunVsModel.Mesaj" />
+          <EntitySet Name="OkulFakultes" EntityType="MezunVsModel.OkulFakulte" />
+          <EntitySet Name="OkunanBolums" EntityType="MezunVsModel.OkunanBolum" />
+          <EntitySet Name="Referans" EntityType="MezunVsModel.Referan" />
+          <EntitySet Name="Sehirs" EntityType="MezunVsModel.Sehir" />
+          <EntitySet Name="Sektors" EntityType="MezunVsModel.Sektor" />
+          <EntitySet Name="sysdiagrams" EntityType="MezunVsModel.sysdiagram" />
+          <EntitySet Name="Universites" EntityType="MezunVsModel.Universite" />
+          <EntitySet Name="Yasaklilars" EntityType="MezunVsModel.Yasaklilar" />
+          <AssociationSet Name="FK_Yasaklilar_Admin" Association="MezunVsModel.FK_Yasaklilar_Admin">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="Yasaklilar" EntitySet="Yasaklilars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Arkadas_Kullanici" Association="MezunVsModel.FK_Arkadas_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+            <End Role="Arkada" EntitySet="Arkadas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Arkadas_Kullanici1" Association="MezunVsModel.FK_Arkadas_Kullanici1">
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+            <End Role="Arkada" EntitySet="Arkadas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bildirimler_Kullanici" Association="MezunVsModel.FK_Bildirimler_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+            <End Role="Bildirimler" EntitySet="Bildirimlers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bolum_OkulFakulte" Association="MezunVsModel.FK_Bolum_OkulFakulte">
+            <End Role="OkulFakulte" EntitySet="OkulFakultes" />
+            <End Role="Bolum" EntitySet="Bolums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Etkinlik_Bolum" Association="MezunVsModel.FK_Etkinlik_Bolum">
+            <End Role="Bolum" EntitySet="Bolums" />
+            <End Role="Etkinlik" EntitySet="Etkinliks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OkunanBolum_Bolum" Association="MezunVsModel.FK_OkunanBolum_Bolum">
+            <End Role="Bolum" EntitySet="Bolums" />
+            <End Role="OkunanBolum" EntitySet="OkunanBolums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Isilanlari_Departman" Association="MezunVsModel.FK_Isilanlari_Departman">
+            <End Role="Departman" EntitySet="Departmen" />
+            <End Role="Isilanlari" EntitySet="Isilanlaris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KullaniciIsGecmisi_Departman" Association="MezunVsModel.FK_KullaniciIsGecmisi_Departman">
+            <End Role="Departman" EntitySet="Departmen" />
+            <End Role="KullaniciIsGecmisi" EntitySet="KullaniciIsGecmisis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engelliler_Kullanici" Association="MezunVsModel.FK_Engelliler_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+            <End Role="Engelliler" EntitySet="Engellilers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engelliler_Kullanici1" Association="MezunVsModel.FK_Engelliler_Kullanici1">
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+            <End Role="Engelliler" EntitySet="Engellilers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Etkinlik_Kullanici" Association="MezunVsModel.FK_Etkinlik_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+            <End Role="Etkinlik" EntitySet="Etkinliks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Etkinlik_OkulFakulte" Association="MezunVsModel.FK_Etkinlik_OkulFakulte">
+            <End Role="OkulFakulte" EntitySet="OkulFakultes" />
+            <End Role="Etkinlik" EntitySet="Etkinliks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Etkinlik_Universite" Association="MezunVsModel.FK_Etkinlik_Universite">
+            <End Role="Universite" EntitySet="Universites" />
+            <End Role="Etkinlik" EntitySet="Etkinliks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Referans_Etkinlik" Association="MezunVsModel.FK_Referans_Etkinlik">
+            <End Role="Etkinlik" EntitySet="Etkinliks" />
+            <End Role="Referan" EntitySet="Referans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Isilanlari_Isyeri" Association="MezunVsModel.FK_Isilanlari_Isyeri">
+            <End Role="Isyeri" EntitySet="Isyeris" />
+            <End Role="Isilanlari" EntitySet="Isilanlaris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Isyeri_Sehir" Association="MezunVsModel.FK_Isyeri_Sehir">
+            <End Role="Sehir" EntitySet="Sehirs" />
+            <End Role="Isyeri" EntitySet="Isyeris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Isyeri_Sektor" Association="MezunVsModel.FK_Isyeri_Sektor">
+            <End Role="Sektor" EntitySet="Sektors" />
+            <End Role="Isyeri" EntitySet="Isyeris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KullaniciIsGecmisi_Isyeri" Association="MezunVsModel.FK_KullaniciIsGecmisi_Isyeri">
+            <End Role="Isyeri" EntitySet="Isyeris" />
+            <End Role="KullaniciIsGecmisi" EntitySet="KullaniciIsGecmisis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kullanici_Sehir" Association="MezunVsModel.FK_Kullanici_Sehir">
+            <End Role="Sehir" EntitySet="Sehirs" />
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KullaniciIsGecmisi_Kullanici" Association="MezunVsModel.FK_KullaniciIsGecmisi_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+            <End Role="KullaniciIsGecmisi" EntitySet="KullaniciIsGecmisis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mesaj_Kullanici" Association="MezunVsModel.FK_Mesaj_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+            <End Role="Mesaj" EntitySet="Mesajs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mesaj_Kullanici1" Association="MezunVsModel.FK_Mesaj_Kullanici1">
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+            <End Role="Mesaj" EntitySet="Mesajs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OkunanBolum_Kullanici" Association="MezunVsModel.FK_OkunanBolum_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+            <End Role="OkunanBolum" EntitySet="OkunanBolums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Referans_Kullanici" Association="MezunVsModel.FK_Referans_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+            <End Role="Referan" EntitySet="Referans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yasaklilar_Kullanici" Association="MezunVsModel.FK_Yasaklilar_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+            <End Role="Yasaklilar" EntitySet="Yasaklilars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OkulFakulte_Universite" Association="MezunVsModel.FK_OkulFakulte_Universite">
+            <End Role="Universite" EntitySet="Universites" />
+            <End Role="OkulFakulte" EntitySet="OkulFakultes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Universite_Sehir" Association="MezunVsModel.FK_Universite_Sehir">
+            <End Role="Sehir" EntitySet="Sehirs" />
+            <End Role="Universite" EntitySet="Universites" />
+          </AssociationSet>
+          <EntitySet Name="ViewOkuls" EntityType="MezunVsModel.ViewOkul" />
+          <EntitySet Name="ViewisBilgisis" EntityType="MezunVsModel.ViewisBilgisi" />
+          <AssociationSet Name="FK_Departman_Isyeri" Association="MezunVsModel.FK_Departman_Isyeri">
+            <End Role="Isyeri" EntitySet="Isyeris" />
+            <End Role="Departman" EntitySet="Departmen" />
+          </AssociationSet>
+          <EntitySet Name="View_1" EntityType="MezunVsModel.View_1" />
+          <EntitySet Name="ViewMesajs" EntityType="MezunVsModel.ViewMesaj" />
+          <EntitySet Name="Paylasims" EntityType="MezunVsModel.Paylasim" />
+          <EntitySet Name="Yorums" EntityType="MezunVsModel.Yorum" />
+          <AssociationSet Name="FK_Paylasim_Kullanici" Association="MezunVsModel.FK_Paylasim_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+            <End Role="Paylasim" EntitySet="Paylasims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yorum_Kullanici" Association="MezunVsModel.FK_Yorum_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+            <End Role="Yorum" EntitySet="Yorums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yorum_Paylasim" Association="MezunVsModel.FK_Yorum_Paylasim">
+            <End Role="Paylasim" EntitySet="Paylasims" />
+            <End Role="Yorum" EntitySet="Yorums" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="adminID" />
+          </Key>
+          <Property Name="adminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adminKullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="adminParola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="adminYetki" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="adminMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Yasaklilars" Relationship="MezunVsModel.FK_Yasaklilar_Admin" FromRole="Admin" ToRole="Yasaklilar" />
+        </EntityType>
+        <EntityType Name="Arkada">
+          <Key>
+            <PropertyRef Name="arkadasID" />
+          </Key>
+          <Property Name="arkadasID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciID1" Type="Int32" />
+          <Property Name="kullaniciID2" Type="Int32" />
+          <NavigationProperty Name="Kullanici" Relationship="MezunVsModel.FK_Arkadas_Kullanici" FromRole="Arkada" ToRole="Kullanici" />
+          <NavigationProperty Name="Kullanici1" Relationship="MezunVsModel.FK_Arkadas_Kullanici1" FromRole="Arkada" ToRole="Kullanici" />
+          <Property Name="arkadaslikOnay" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Bildirimler">
+          <Key>
+            <PropertyRef Name="bildirimID" />
+          </Key>
+          <Property Name="bildirimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciID" Type="Int32" />
+          <Property Name="bildirimAciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bildirimZaman" Type="DateTime" Precision="3" />
+          <Property Name="bildirimOkunma" Type="Boolean" />
+          <Property Name="bildirimUrl" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Kullanici" Relationship="MezunVsModel.FK_Bildirimler_Kullanici" FromRole="Bildirimler" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="Bolum">
+          <Key>
+            <PropertyRef Name="bolumID" />
+          </Key>
+          <Property Name="bolumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bolumAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="okulID" Type="Int32" />
+          <NavigationProperty Name="OkulFakulte" Relationship="MezunVsModel.FK_Bolum_OkulFakulte" FromRole="Bolum" ToRole="OkulFakulte" />
+          <NavigationProperty Name="Etkinliks" Relationship="MezunVsModel.FK_Etkinlik_Bolum" FromRole="Bolum" ToRole="Etkinlik" />
+          <NavigationProperty Name="OkunanBolums" Relationship="MezunVsModel.FK_OkunanBolum_Bolum" FromRole="Bolum" ToRole="OkunanBolum" />
+        </EntityType>
+        <EntityType Name="Departman">
+          <Key>
+            <PropertyRef Name="departmanID" />
+          </Key>
+          <Property Name="departmanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="departmanAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Isilanlaris" Relationship="MezunVsModel.FK_Isilanlari_Departman" FromRole="Departman" ToRole="Isilanlari" />
+          <NavigationProperty Name="KullaniciIsGecmisis" Relationship="MezunVsModel.FK_KullaniciIsGecmisi_Departman" FromRole="Departman" ToRole="KullaniciIsGecmisi" />
+          <Property Name="IsyeriID" Type="Int32" />
+          <NavigationProperty Name="Isyeri" Relationship="MezunVsModel.FK_Departman_Isyeri" FromRole="Departman" ToRole="Isyeri" />
+        </EntityType>
+        <EntityType Name="Engelliler">
+          <Key>
+            <PropertyRef Name="engelID" />
+          </Key>
+          <Property Name="engelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciID" Type="Int32" />
+          <Property Name="engelliKullanici" Type="Int32" />
+          <NavigationProperty Name="Kullanici" Relationship="MezunVsModel.FK_Engelliler_Kullanici" FromRole="Engelliler" ToRole="Kullanici" />
+          <NavigationProperty Name="Kullanici1" Relationship="MezunVsModel.FK_Engelliler_Kullanici1" FromRole="Engelliler" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="Etkinlik">
+          <Key>
+            <PropertyRef Name="etkinlikID" />
+          </Key>
+          <Property Name="etkinlikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uniID" Type="Int32" />
+          <Property Name="okulID" Type="Int32" />
+          <Property Name="bolumID" Type="Int32" />
+          <Property Name="icerik" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="etkinlikTarihiBaslangıc" Type="DateTime" Precision="3" />
+          <Property Name="etkinlikTarihiBitis" Type="DateTime" Precision="3" />
+          <Property Name="kullaniciOlusturan" Type="Int32" />
+          <NavigationProperty Name="Bolum" Relationship="MezunVsModel.FK_Etkinlik_Bolum" FromRole="Etkinlik" ToRole="Bolum" />
+          <NavigationProperty Name="Kullanici" Relationship="MezunVsModel.FK_Etkinlik_Kullanici" FromRole="Etkinlik" ToRole="Kullanici" />
+          <NavigationProperty Name="OkulFakulte" Relationship="MezunVsModel.FK_Etkinlik_OkulFakulte" FromRole="Etkinlik" ToRole="OkulFakulte" />
+          <NavigationProperty Name="Universite" Relationship="MezunVsModel.FK_Etkinlik_Universite" FromRole="Etkinlik" ToRole="Universite" />
+          <NavigationProperty Name="Referans" Relationship="MezunVsModel.FK_Referans_Etkinlik" FromRole="Etkinlik" ToRole="Referan" />
+        </EntityType>
+        <EntityType Name="Isilanlari">
+          <Key>
+            <PropertyRef Name="ilanID" />
+          </Key>
+          <Property Name="ilanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="isyeriID" Type="Int32" />
+          <Property Name="departmanID" Type="Int32" />
+          <Property Name="acıklama" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ücret" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Departman" Relationship="MezunVsModel.FK_Isilanlari_Departman" FromRole="Isilanlari" ToRole="Departman" />
+          <NavigationProperty Name="Isyeri" Relationship="MezunVsModel.FK_Isilanlari_Isyeri" FromRole="Isilanlari" ToRole="Isyeri" />
+        </EntityType>
+        <EntityType Name="Isyeri">
+          <Key>
+            <PropertyRef Name="IsyeriID" />
+          </Key>
+          <Property Name="IsyeriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsyeriAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsyeriAdres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsyeriTell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sehırID" Type="Int32" />
+          <Property Name="sektorID" Type="Int32" />
+          <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Isilanlaris" Relationship="MezunVsModel.FK_Isilanlari_Isyeri" FromRole="Isyeri" ToRole="Isilanlari" />
+          <NavigationProperty Name="Sehir" Relationship="MezunVsModel.FK_Isyeri_Sehir" FromRole="Isyeri" ToRole="Sehir" />
+          <NavigationProperty Name="Sektor" Relationship="MezunVsModel.FK_Isyeri_Sektor" FromRole="Isyeri" ToRole="Sektor" />
+          <NavigationProperty Name="KullaniciIsGecmisis" Relationship="MezunVsModel.FK_KullaniciIsGecmisi_Isyeri" FromRole="Isyeri" ToRole="KullaniciIsGecmisi" />
+          <NavigationProperty Name="Departmen" Relationship="MezunVsModel.FK_Departman_Isyeri" FromRole="Isyeri" ToRole="Departman" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="kullaniciID" />
+          </Key>
+          <Property Name="kullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="isim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dTarihi" Type="DateTime" Precision="3" />
+          <Property Name="hakkimda" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="sehirID" Type="Int32" />
+          <Property Name="aktifmi" Type="Boolean" />
+          <Property Name="resim" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="onay" Type="Boolean" />
+          <Property Name="uyeKoduZaman" Type="DateTime" Precision="3" />
+          <Property Name="uyeKodu" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="cinsiyet" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Name="isBilgisi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Arkadas" Relationship="MezunVsModel.FK_Arkadas_Kullanici" FromRole="Kullanici" ToRole="Arkada" />
+          <NavigationProperty Name="Arkadas1" Relationship="MezunVsModel.FK_Arkadas_Kullanici1" FromRole="Kullanici" ToRole="Arkada" />
+          <NavigationProperty Name="Bildirimlers" Relationship="MezunVsModel.FK_Bildirimler_Kullanici" FromRole="Kullanici" ToRole="Bildirimler" />
+          <NavigationProperty Name="Engellilers" Relationship="MezunVsModel.FK_Engelliler_Kullanici" FromRole="Kullanici" ToRole="Engelliler" />
+          <NavigationProperty Name="Engellilers1" Relationship="MezunVsModel.FK_Engelliler_Kullanici1" FromRole="Kullanici" ToRole="Engelliler" />
+          <NavigationProperty Name="Etkinliks" Relationship="MezunVsModel.FK_Etkinlik_Kullanici" FromRole="Kullanici" ToRole="Etkinlik" />
+          <NavigationProperty Name="Sehir" Relationship="MezunVsModel.FK_Kullanici_Sehir" FromRole="Kullanici" ToRole="Sehir" />
+          <NavigationProperty Name="KullaniciIsGecmisis" Relationship="MezunVsModel.FK_KullaniciIsGecmisi_Kullanici" FromRole="Kullanici" ToRole="KullaniciIsGecmisi" />
+          <NavigationProperty Name="Mesajs" Relationship="MezunVsModel.FK_Mesaj_Kullanici" FromRole="Kullanici" ToRole="Mesaj" />
+          <NavigationProperty Name="Mesajs1" Relationship="MezunVsModel.FK_Mesaj_Kullanici1" FromRole="Kullanici" ToRole="Mesaj" />
+          <NavigationProperty Name="OkunanBolums" Relationship="MezunVsModel.FK_OkunanBolum_Kullanici" FromRole="Kullanici" ToRole="OkunanBolum" />
+          <NavigationProperty Name="Referans" Relationship="MezunVsModel.FK_Referans_Kullanici" FromRole="Kullanici" ToRole="Referan" />
+          <NavigationProperty Name="Yasaklilars" Relationship="MezunVsModel.FK_Yasaklilar_Kullanici" FromRole="Kullanici" ToRole="Yasaklilar" />
+          <Property Name="gosterilenMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="facebookURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="twitterURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Paylasims" Relationship="MezunVsModel.FK_Paylasim_Kullanici" FromRole="Kullanici" ToRole="Paylasim" />
+          <NavigationProperty Name="Yorums" Relationship="MezunVsModel.FK_Yorum_Kullanici" FromRole="Kullanici" ToRole="Yorum" />
+        </EntityType>
+        <EntityType Name="KullaniciIsGecmisi">
+          <Key>
+            <PropertyRef Name="isID" />
+          </Key>
+          <Property Name="isID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciID" Type="Int32" />
+          <Property Name="isGirisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="isCikisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="IsyeriID" Type="Int32" />
+          <Property Name="departmanID" Type="Int32" />
+          <NavigationProperty Name="Departman" Relationship="MezunVsModel.FK_KullaniciIsGecmisi_Departman" FromRole="KullaniciIsGecmisi" ToRole="Departman" />
+          <NavigationProperty Name="Isyeri" Relationship="MezunVsModel.FK_KullaniciIsGecmisi_Isyeri" FromRole="KullaniciIsGecmisi" ToRole="Isyeri" />
+          <NavigationProperty Name="Kullanici" Relationship="MezunVsModel.FK_KullaniciIsGecmisi_Kullanici" FromRole="KullaniciIsGecmisi" ToRole="Kullanici" />
+          <Property Name="pozisyon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Mesaj">
+          <Key>
+            <PropertyRef Name="mesajID" />
+          </Key>
+          <Property Name="mesajID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciIDGonderen" Type="Int32" />
+          <Property Name="kullaniciIDAlan" Type="Int32" />
+          <Property Name="mesajIcerik" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="mesajZaman" Type="DateTime" Precision="3" />
+          <Property Name="mesajOkunma" Type="Boolean" />
+          <Property Name="mesajGrup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Kullanici" Relationship="MezunVsModel.FK_Mesaj_Kullanici" FromRole="Mesaj" ToRole="Kullanici" />
+          <NavigationProperty Name="Kullanici1" Relationship="MezunVsModel.FK_Mesaj_Kullanici1" FromRole="Mesaj" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="OkulFakulte">
+          <Key>
+            <PropertyRef Name="okulID" />
+          </Key>
+          <Property Name="okulID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="okulAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="uniID" Type="Int32" />
+          <NavigationProperty Name="Bolums" Relationship="MezunVsModel.FK_Bolum_OkulFakulte" FromRole="OkulFakulte" ToRole="Bolum" />
+          <NavigationProperty Name="Etkinliks" Relationship="MezunVsModel.FK_Etkinlik_OkulFakulte" FromRole="OkulFakulte" ToRole="Etkinlik" />
+          <NavigationProperty Name="Universite" Relationship="MezunVsModel.FK_OkulFakulte_Universite" FromRole="OkulFakulte" ToRole="Universite" />
+        </EntityType>
+        <EntityType Name="OkunanBolum">
+          <Key>
+            <PropertyRef Name="okunanBolumID" />
+          </Key>
+          <Property Name="okunanBolumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciID" Type="Int32" />
+          <Property Name="bolumID" Type="Int32" />
+          <Property Name="girisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="cikisTarihi" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Bolum" Relationship="MezunVsModel.FK_OkunanBolum_Bolum" FromRole="OkunanBolum" ToRole="Bolum" />
+          <NavigationProperty Name="Kullanici" Relationship="MezunVsModel.FK_OkunanBolum_Kullanici" FromRole="OkunanBolum" ToRole="Kullanici" />
+          <Property Name="mezunDurumu" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Referan">
+          <Key>
+            <PropertyRef Name="referansID" />
+          </Key>
+          <Property Name="referansID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciID" Type="Int32" />
+          <Property Name="etkinlikID" Type="Int32" />
+          <Property Name="onay" Type="Boolean" />
+          <NavigationProperty Name="Etkinlik" Relationship="MezunVsModel.FK_Referans_Etkinlik" FromRole="Referan" ToRole="Etkinlik" />
+          <NavigationProperty Name="Kullanici" Relationship="MezunVsModel.FK_Referans_Kullanici" FromRole="Referan" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="Sehir">
+          <Key>
+            <PropertyRef Name="sehirID" />
+          </Key>
+          <Property Name="sehirID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sehirAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Isyeris" Relationship="MezunVsModel.FK_Isyeri_Sehir" FromRole="Sehir" ToRole="Isyeri" />
+          <NavigationProperty Name="Kullanicis" Relationship="MezunVsModel.FK_Kullanici_Sehir" FromRole="Sehir" ToRole="Kullanici" />
+          <NavigationProperty Name="Universites" Relationship="MezunVsModel.FK_Universite_Sehir" FromRole="Sehir" ToRole="Universite" />
+        </EntityType>
+        <EntityType Name="Sektor">
+          <Key>
+            <PropertyRef Name="SektorID" />
+          </Key>
+          <Property Name="SektorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SektorAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Isyeris" Relationship="MezunVsModel.FK_Isyeri_Sektor" FromRole="Sektor" ToRole="Isyeri" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Universite">
+          <Key>
+            <PropertyRef Name="uniID" />
+          </Key>
+          <Property Name="uniID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uniAd" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="sehirID" Type="Int32" />
+          <NavigationProperty Name="Etkinliks" Relationship="MezunVsModel.FK_Etkinlik_Universite" FromRole="Universite" ToRole="Etkinlik" />
+          <NavigationProperty Name="OkulFakultes" Relationship="MezunVsModel.FK_OkulFakulte_Universite" FromRole="Universite" ToRole="OkulFakulte" />
+          <NavigationProperty Name="Sehir" Relationship="MezunVsModel.FK_Universite_Sehir" FromRole="Universite" ToRole="Sehir" />
+        </EntityType>
+        <EntityType Name="Yasaklilar">
+          <Key>
+            <PropertyRef Name="yasakID" />
+          </Key>
+          <Property Name="yasakID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciID" Type="Int32" />
+          <Property Name="adminID" Type="Int32" />
+          <Property Name="detay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="yasakTarihi" Type="DateTime" Precision="3" />
+          <Property Name="yasakSuresi" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Admin" Relationship="MezunVsModel.FK_Yasaklilar_Admin" FromRole="Yasaklilar" ToRole="Admin" />
+          <NavigationProperty Name="Kullanici" Relationship="MezunVsModel.FK_Yasaklilar_Kullanici" FromRole="Yasaklilar" ToRole="Kullanici" />
+        </EntityType>
+        <Association Name="FK_Yasaklilar_Admin">
+          <End Type="MezunVsModel.Admin" Role="Admin" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Yasaklilar" Role="Yasaklilar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="adminID" />
+            </Principal>
+            <Dependent Role="Yasaklilar">
+              <PropertyRef Name="adminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Arkadas_Kullanici">
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Arkada" Role="Arkada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Arkada">
+              <PropertyRef Name="kullaniciID1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Arkadas_Kullanici1">
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Arkada" Role="Arkada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Arkada">
+              <PropertyRef Name="kullaniciID2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bildirimler_Kullanici">
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Bildirimler" Role="Bildirimler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Bildirimler">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bolum_OkulFakulte">
+          <End Type="MezunVsModel.OkulFakulte" Role="OkulFakulte" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Bolum" Role="Bolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OkulFakulte">
+              <PropertyRef Name="okulID" />
+            </Principal>
+            <Dependent Role="Bolum">
+              <PropertyRef Name="okulID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Etkinlik_Bolum">
+          <End Type="MezunVsModel.Bolum" Role="Bolum" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Etkinlik" Role="Etkinlik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="bolumID" />
+            </Principal>
+            <Dependent Role="Etkinlik">
+              <PropertyRef Name="bolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OkunanBolum_Bolum">
+          <End Type="MezunVsModel.Bolum" Role="Bolum" Multiplicity="0..1" />
+          <End Type="MezunVsModel.OkunanBolum" Role="OkunanBolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="bolumID" />
+            </Principal>
+            <Dependent Role="OkunanBolum">
+              <PropertyRef Name="bolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Isilanlari_Departman">
+          <End Type="MezunVsModel.Departman" Role="Departman" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Isilanlari" Role="Isilanlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departman">
+              <PropertyRef Name="departmanID" />
+            </Principal>
+            <Dependent Role="Isilanlari">
+              <PropertyRef Name="departmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KullaniciIsGecmisi_Departman">
+          <End Type="MezunVsModel.Departman" Role="Departman" Multiplicity="0..1" />
+          <End Type="MezunVsModel.KullaniciIsGecmisi" Role="KullaniciIsGecmisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departman">
+              <PropertyRef Name="departmanID" />
+            </Principal>
+            <Dependent Role="KullaniciIsGecmisi">
+              <PropertyRef Name="departmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engelliler_Kullanici">
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Engelliler" Role="Engelliler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Engelliler">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engelliler_Kullanici1">
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Engelliler" Role="Engelliler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Engelliler">
+              <PropertyRef Name="engelliKullanici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Etkinlik_Kullanici">
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Etkinlik" Role="Etkinlik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Etkinlik">
+              <PropertyRef Name="kullaniciOlusturan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Etkinlik_OkulFakulte">
+          <End Type="MezunVsModel.OkulFakulte" Role="OkulFakulte" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Etkinlik" Role="Etkinlik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OkulFakulte">
+              <PropertyRef Name="okulID" />
+            </Principal>
+            <Dependent Role="Etkinlik">
+              <PropertyRef Name="okulID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Etkinlik_Universite">
+          <End Type="MezunVsModel.Universite" Role="Universite" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Etkinlik" Role="Etkinlik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Universite">
+              <PropertyRef Name="uniID" />
+            </Principal>
+            <Dependent Role="Etkinlik">
+              <PropertyRef Name="uniID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Referans_Etkinlik">
+          <End Type="MezunVsModel.Etkinlik" Role="Etkinlik" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Referan" Role="Referan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etkinlik">
+              <PropertyRef Name="etkinlikID" />
+            </Principal>
+            <Dependent Role="Referan">
+              <PropertyRef Name="etkinlikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Isilanlari_Isyeri">
+          <End Type="MezunVsModel.Isyeri" Role="Isyeri" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Isilanlari" Role="Isilanlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Isyeri">
+              <PropertyRef Name="IsyeriID" />
+            </Principal>
+            <Dependent Role="Isilanlari">
+              <PropertyRef Name="isyeriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Isyeri_Sehir">
+          <End Type="MezunVsModel.Sehir" Role="Sehir" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Isyeri" Role="Isyeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehir">
+              <PropertyRef Name="sehirID" />
+            </Principal>
+            <Dependent Role="Isyeri">
+              <PropertyRef Name="sehırID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Isyeri_Sektor">
+          <End Type="MezunVsModel.Sektor" Role="Sektor" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Isyeri" Role="Isyeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sektor">
+              <PropertyRef Name="SektorID" />
+            </Principal>
+            <Dependent Role="Isyeri">
+              <PropertyRef Name="sektorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KullaniciIsGecmisi_Isyeri">
+          <End Type="MezunVsModel.Isyeri" Role="Isyeri" Multiplicity="0..1" />
+          <End Type="MezunVsModel.KullaniciIsGecmisi" Role="KullaniciIsGecmisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Isyeri">
+              <PropertyRef Name="IsyeriID" />
+            </Principal>
+            <Dependent Role="KullaniciIsGecmisi">
+              <PropertyRef Name="IsyeriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kullanici_Sehir">
+          <End Type="MezunVsModel.Sehir" Role="Sehir" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehir">
+              <PropertyRef Name="sehirID" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="sehirID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KullaniciIsGecmisi_Kullanici">
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+          <End Type="MezunVsModel.KullaniciIsGecmisi" Role="KullaniciIsGecmisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="KullaniciIsGecmisi">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mesaj_Kullanici">
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Mesaj" Role="Mesaj" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Mesaj">
+              <PropertyRef Name="kullaniciIDGonderen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mesaj_Kullanici1">
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Mesaj" Role="Mesaj" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Mesaj">
+              <PropertyRef Name="kullaniciIDAlan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OkunanBolum_Kullanici">
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+          <End Type="MezunVsModel.OkunanBolum" Role="OkunanBolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="OkunanBolum">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Referans_Kullanici">
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Referan" Role="Referan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Referan">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yasaklilar_Kullanici">
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Yasaklilar" Role="Yasaklilar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Yasaklilar">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OkulFakulte_Universite">
+          <End Type="MezunVsModel.Universite" Role="Universite" Multiplicity="0..1" />
+          <End Type="MezunVsModel.OkulFakulte" Role="OkulFakulte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Universite">
+              <PropertyRef Name="uniID" />
+            </Principal>
+            <Dependent Role="OkulFakulte">
+              <PropertyRef Name="uniID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Universite_Sehir">
+          <End Type="MezunVsModel.Sehir" Role="Sehir" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Universite" Role="Universite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehir">
+              <PropertyRef Name="sehirID" />
+            </Principal>
+            <Dependent Role="Universite">
+              <PropertyRef Name="sehirID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ViewOkul">
+          <Key>
+            <PropertyRef Name="okunanBolumID" />
+          </Key>
+          <Property Name="okunanBolumID" Type="Int32" Nullable="false" />
+          <Property Name="bolumAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="okulID" Type="Int32" />
+          <Property Name="okulAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="uniID" Type="Int32" />
+          <Property Name="uniAd" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="sehirID" Type="Int32" />
+          <Property Name="sehirAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kullaniciID" Type="Int32" />
+          <Property Name="girisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="cikisTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ViewisBilgisi">
+          <Key>
+            <PropertyRef Name="isID" />
+          </Key>
+          <Property Name="isID" Type="Int32" Nullable="false" />
+          <Property Name="departmanID" Type="Int32" />
+          <Property Name="departmanAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsyeriID" Type="Int32" />
+          <Property Name="Expr1" Type="Int32" />
+          <Property Name="IsyeriAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsyeriAdres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsyeriTell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sehırID" Type="Int32" />
+          <Property Name="sektorID" Type="Int32" />
+          <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sehirAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SektorAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pozisyon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isGirisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="isCikisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="kullaniciID" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_Departman_Isyeri">
+          <End Type="MezunVsModel.Isyeri" Role="Isyeri" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Departman" Role="Departman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Isyeri">
+              <PropertyRef Name="IsyeriID" />
+            </Principal>
+            <Dependent Role="Departman">
+              <PropertyRef Name="IsyeriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="View_1">
+          <Key>
+            <PropertyRef Name="bildirimID" />
+          </Key>
+          <Property Name="bildirimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciID" Type="Int32" />
+          <Property Name="bildirimAciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bildirimZaman" Type="DateTime" Precision="3" />
+          <Property Name="bildirimOkunma" Type="Boolean" />
+          <Property Name="bildirimUrl" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ViewMesaj">
+          <Key>
+            <PropertyRef Name="mesajID" />
+          </Key>
+          <Property Name="mesajID" Type="Int32" Nullable="false" />
+          <Property Name="kullaniciIDGonderen" Type="Int32" />
+          <Property Name="kullaniciIDAlan" Type="Int32" />
+          <Property Name="mesajIcerik" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="mesajZaman" Type="DateTime" Precision="3" />
+          <Property Name="mesajOkunma" Type="Boolean" />
+          <Property Name="isim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="resim" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Paylasim">
+          <Key>
+            <PropertyRef Name="paylasimID" />
+          </Key>
+          <Property Name="paylasimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="grup" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="ogeID" Type="Int32" />
+          <Property Name="kullaniciID" Type="Int32" />
+          <Property Name="icerik" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="tarih" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Kullanici" Relationship="MezunVsModel.FK_Paylasim_Kullanici" FromRole="Paylasim" ToRole="Kullanici" />
+          <NavigationProperty Name="Yorums" Relationship="MezunVsModel.FK_Yorum_Paylasim" FromRole="Paylasim" ToRole="Yorum" />
+        </EntityType>
+        <EntityType Name="Yorum">
+          <Key>
+            <PropertyRef Name="yorumID" />
+          </Key>
+          <Property Name="yorumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paylasimID" Type="Int32" />
+          <Property Name="kullaniciID" Type="Int32" />
+          <Property Name="icerik" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="tarih" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Kullanici" Relationship="MezunVsModel.FK_Yorum_Kullanici" FromRole="Yorum" ToRole="Kullanici" />
+          <NavigationProperty Name="Paylasim" Relationship="MezunVsModel.FK_Yorum_Paylasim" FromRole="Yorum" ToRole="Paylasim" />
+        </EntityType>
+        <Association Name="FK_Paylasim_Kullanici">
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Paylasim" Role="Paylasim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Paylasim">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yorum_Kullanici">
+          <End Type="MezunVsModel.Kullanici" Role="Kullanici" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Yorum" Role="Yorum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="kullaniciID" />
+            </Principal>
+            <Dependent Role="Yorum">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yorum_Paylasim">
+          <End Type="MezunVsModel.Paylasim" Role="Paylasim" Multiplicity="0..1" />
+          <End Type="MezunVsModel.Yorum" Role="Yorum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paylasim">
+              <PropertyRef Name="paylasimID" />
+            </Principal>
+            <Dependent Role="Yorum">
+              <PropertyRef Name="paylasimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MezunVsModelStoreContainer" CdmEntityContainer="MezunVsEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="MezunVsModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="adminMail" ColumnName="adminMail" />
+                <ScalarProperty Name="adminYetki" ColumnName="adminYetki" />
+                <ScalarProperty Name="adminParola" ColumnName="adminParola" />
+                <ScalarProperty Name="adminKullaniciAdi" ColumnName="adminKullaniciAdi" />
+                <ScalarProperty Name="adminID" ColumnName="adminID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Arkadas">
+            <EntityTypeMapping TypeName="MezunVsModel.Arkada">
+              <MappingFragment StoreEntitySet="Arkadas">
+                <ScalarProperty Name="arkadaslikOnay" ColumnName="arkadaslikOnay" />
+                <ScalarProperty Name="kullaniciID2" ColumnName="kullaniciID2" />
+                <ScalarProperty Name="kullaniciID1" ColumnName="kullaniciID1" />
+                <ScalarProperty Name="arkadasID" ColumnName="arkadasID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bildirimlers">
+            <EntityTypeMapping TypeName="MezunVsModel.Bildirimler">
+              <MappingFragment StoreEntitySet="Bildirimler">
+                <ScalarProperty Name="bildirimUrl" ColumnName="bildirimUrl" />
+                <ScalarProperty Name="bildirimOkunma" ColumnName="bildirimOkunma" />
+                <ScalarProperty Name="bildirimZaman" ColumnName="bildirimZaman" />
+                <ScalarProperty Name="bildirimAciklama" ColumnName="bildirimAciklama" />
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="bildirimID" ColumnName="bildirimID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bolums">
+            <EntityTypeMapping TypeName="MezunVsModel.Bolum">
+              <MappingFragment StoreEntitySet="Bolum">
+                <ScalarProperty Name="okulID" ColumnName="okulID" />
+                <ScalarProperty Name="bolumAd" ColumnName="bolumAd" />
+                <ScalarProperty Name="bolumID" ColumnName="bolumID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departmen">
+            <EntityTypeMapping TypeName="MezunVsModel.Departman">
+              <MappingFragment StoreEntitySet="Departman">
+                <ScalarProperty Name="IsyeriID" ColumnName="IsyeriID" />
+                <ScalarProperty Name="departmanAd" ColumnName="departmanAd" />
+                <ScalarProperty Name="departmanID" ColumnName="departmanID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Engellilers">
+            <EntityTypeMapping TypeName="MezunVsModel.Engelliler">
+              <MappingFragment StoreEntitySet="Engelliler">
+                <ScalarProperty Name="engelliKullanici" ColumnName="engelliKullanici" />
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="engelID" ColumnName="engelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Etkinliks">
+            <EntityTypeMapping TypeName="MezunVsModel.Etkinlik">
+              <MappingFragment StoreEntitySet="Etkinlik">
+                <ScalarProperty Name="kullaniciOlusturan" ColumnName="kullaniciOlusturan" />
+                <ScalarProperty Name="etkinlikTarihiBitis" ColumnName="etkinlikTarihiBitis" />
+                <ScalarProperty Name="etkinlikTarihiBaslangıc" ColumnName="etkinlikTarihiBaslangıc" />
+                <ScalarProperty Name="icerik" ColumnName="icerik" />
+                <ScalarProperty Name="bolumID" ColumnName="bolumID" />
+                <ScalarProperty Name="okulID" ColumnName="okulID" />
+                <ScalarProperty Name="uniID" ColumnName="uniID" />
+                <ScalarProperty Name="etkinlikID" ColumnName="etkinlikID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Isilanlaris">
+            <EntityTypeMapping TypeName="MezunVsModel.Isilanlari">
+              <MappingFragment StoreEntitySet="Isilanlari">
+                <ScalarProperty Name="ücret" ColumnName="ücret" />
+                <ScalarProperty Name="acıklama" ColumnName="acıklama" />
+                <ScalarProperty Name="departmanID" ColumnName="departmanID" />
+                <ScalarProperty Name="isyeriID" ColumnName="isyeriID" />
+                <ScalarProperty Name="ilanID" ColumnName="ilanID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Isyeris">
+            <EntityTypeMapping TypeName="MezunVsModel.Isyeri">
+              <MappingFragment StoreEntitySet="Isyeri">
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="sektorID" ColumnName="sektorID" />
+                <ScalarProperty Name="sehırID" ColumnName="sehırID" />
+                <ScalarProperty Name="IsyeriTell" ColumnName="IsyeriTell" />
+                <ScalarProperty Name="IsyeriAdres" ColumnName="IsyeriAdres" />
+                <ScalarProperty Name="IsyeriAd" ColumnName="IsyeriAd" />
+                <ScalarProperty Name="IsyeriID" ColumnName="IsyeriID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanicis">
+            <EntityTypeMapping TypeName="MezunVsModel.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="twitterURL" ColumnName="twitterURL" />
+                <ScalarProperty Name="facebookURL" ColumnName="facebookURL" />
+                <ScalarProperty Name="gosterilenMail" ColumnName="gosterilenMail" />
+                <ScalarProperty Name="isBilgisi" ColumnName="isBilgisi" />
+                <ScalarProperty Name="cinsiyet" ColumnName="cinsiyet" />
+                <ScalarProperty Name="uyeKodu" ColumnName="uyeKodu" />
+                <ScalarProperty Name="uyeKoduZaman" ColumnName="uyeKoduZaman" />
+                <ScalarProperty Name="onay" ColumnName="onay" />
+                <ScalarProperty Name="resim" ColumnName="resim" />
+                <ScalarProperty Name="aktifmi" ColumnName="aktifmi" />
+                <ScalarProperty Name="sehirID" ColumnName="sehirID" />
+                <ScalarProperty Name="hakkimda" ColumnName="hakkimda" />
+                <ScalarProperty Name="dTarihi" ColumnName="dTarihi" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+                <ScalarProperty Name="isim" ColumnName="isim" />
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KullaniciIsGecmisis">
+            <EntityTypeMapping TypeName="MezunVsModel.KullaniciIsGecmisi">
+              <MappingFragment StoreEntitySet="KullaniciIsGecmisi">
+                <ScalarProperty Name="pozisyon" ColumnName="pozisyon" />
+                <ScalarProperty Name="departmanID" ColumnName="departmanID" />
+                <ScalarProperty Name="IsyeriID" ColumnName="IsyeriID" />
+                <ScalarProperty Name="isCikisTarihi" ColumnName="isCikisTarihi" />
+                <ScalarProperty Name="isGirisTarihi" ColumnName="isGirisTarihi" />
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="isID" ColumnName="isID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mesajs">
+            <EntityTypeMapping TypeName="MezunVsModel.Mesaj">
+              <MappingFragment StoreEntitySet="Mesaj">
+                <ScalarProperty Name="mesajGrup" ColumnName="mesajGrup" />
+                <ScalarProperty Name="mesajOkunma" ColumnName="mesajOkunma" />
+                <ScalarProperty Name="mesajZaman" ColumnName="mesajZaman" />
+                <ScalarProperty Name="mesajIcerik" ColumnName="mesajIcerik" />
+                <ScalarProperty Name="kullaniciIDAlan" ColumnName="kullaniciIDAlan" />
+                <ScalarProperty Name="kullaniciIDGonderen" ColumnName="kullaniciIDGonderen" />
+                <ScalarProperty Name="mesajID" ColumnName="mesajID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OkulFakultes">
+            <EntityTypeMapping TypeName="MezunVsModel.OkulFakulte">
+              <MappingFragment StoreEntitySet="OkulFakulte">
+                <ScalarProperty Name="uniID" ColumnName="uniID" />
+                <ScalarProperty Name="okulAd" ColumnName="okulAd" />
+                <ScalarProperty Name="okulID" ColumnName="okulID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OkunanBolums">
+            <EntityTypeMapping TypeName="MezunVsModel.OkunanBolum">
+              <MappingFragment StoreEntitySet="OkunanBolum">
+                <ScalarProperty Name="mezunDurumu" ColumnName="mezunDurumu" />
+                <ScalarProperty Name="cikisTarihi" ColumnName="cikisTarihi" />
+                <ScalarProperty Name="girisTarihi" ColumnName="girisTarihi" />
+                <ScalarProperty Name="bolumID" ColumnName="bolumID" />
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="okunanBolumID" ColumnName="okunanBolumID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Referans">
+            <EntityTypeMapping TypeName="MezunVsModel.Referan">
+              <MappingFragment StoreEntitySet="Referans">
+                <ScalarProperty Name="onay" ColumnName="onay" />
+                <ScalarProperty Name="etkinlikID" ColumnName="etkinlikID" />
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="referansID" ColumnName="referansID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sehirs">
+            <EntityTypeMapping TypeName="MezunVsModel.Sehir">
+              <MappingFragment StoreEntitySet="Sehir">
+                <ScalarProperty Name="sehirAd" ColumnName="sehirAd" />
+                <ScalarProperty Name="sehirID" ColumnName="sehirID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sektors">
+            <EntityTypeMapping TypeName="MezunVsModel.Sektor">
+              <MappingFragment StoreEntitySet="Sektor">
+                <ScalarProperty Name="SektorAd" ColumnName="SektorAd" />
+                <ScalarProperty Name="SektorID" ColumnName="SektorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MezunVsModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Universites">
+            <EntityTypeMapping TypeName="MezunVsModel.Universite">
+              <MappingFragment StoreEntitySet="Universite">
+                <ScalarProperty Name="sehirID" ColumnName="sehirID" />
+                <ScalarProperty Name="uniAd" ColumnName="uniAd" />
+                <ScalarProperty Name="uniID" ColumnName="uniID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yasaklilars">
+            <EntityTypeMapping TypeName="MezunVsModel.Yasaklilar">
+              <MappingFragment StoreEntitySet="Yasaklilar">
+                <ScalarProperty Name="yasakSuresi" ColumnName="yasakSuresi" />
+                <ScalarProperty Name="yasakTarihi" ColumnName="yasakTarihi" />
+                <ScalarProperty Name="detay" ColumnName="detay" />
+                <ScalarProperty Name="adminID" ColumnName="adminID" />
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="yasakID" ColumnName="yasakID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewOkuls">
+            <EntityTypeMapping TypeName="MezunVsModel.ViewOkul">
+              <MappingFragment StoreEntitySet="ViewOkul">
+                <ScalarProperty Name="cikisTarihi" ColumnName="cikisTarihi" />
+                <ScalarProperty Name="girisTarihi" ColumnName="girisTarihi" />
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="sehirAd" ColumnName="sehirAd" />
+                <ScalarProperty Name="sehirID" ColumnName="sehirID" />
+                <ScalarProperty Name="uniAd" ColumnName="uniAd" />
+                <ScalarProperty Name="uniID" ColumnName="uniID" />
+                <ScalarProperty Name="okulAd" ColumnName="okulAd" />
+                <ScalarProperty Name="okulID" ColumnName="okulID" />
+                <ScalarProperty Name="bolumAd" ColumnName="bolumAd" />
+                <ScalarProperty Name="okunanBolumID" ColumnName="okunanBolumID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewisBilgisis">
+            <EntityTypeMapping TypeName="MezunVsModel.ViewisBilgisi">
+              <MappingFragment StoreEntitySet="ViewisBilgisi">
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="isCikisTarihi" ColumnName="isCikisTarihi" />
+                <ScalarProperty Name="isGirisTarihi" ColumnName="isGirisTarihi" />
+                <ScalarProperty Name="pozisyon" ColumnName="pozisyon" />
+                <ScalarProperty Name="SektorAd" ColumnName="SektorAd" />
+                <ScalarProperty Name="sehirAd" ColumnName="sehirAd" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="sektorID" ColumnName="sektorID" />
+                <ScalarProperty Name="sehırID" ColumnName="sehırID" />
+                <ScalarProperty Name="IsyeriTell" ColumnName="IsyeriTell" />
+                <ScalarProperty Name="IsyeriAdres" ColumnName="IsyeriAdres" />
+                <ScalarProperty Name="IsyeriAd" ColumnName="IsyeriAd" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="IsyeriID" ColumnName="IsyeriID" />
+                <ScalarProperty Name="departmanAd" ColumnName="departmanAd" />
+                <ScalarProperty Name="departmanID" ColumnName="departmanID" />
+                <ScalarProperty Name="isID" ColumnName="isID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_1">
+            <EntityTypeMapping TypeName="MezunVsModel.View_1">
+              <MappingFragment StoreEntitySet="View_1">
+                <ScalarProperty Name="bildirimUrl" ColumnName="bildirimUrl" />
+                <ScalarProperty Name="bildirimOkunma" ColumnName="bildirimOkunma" />
+                <ScalarProperty Name="bildirimZaman" ColumnName="bildirimZaman" />
+                <ScalarProperty Name="bildirimAciklama" ColumnName="bildirimAciklama" />
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="bildirimID" ColumnName="bildirimID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewMesajs">
+            <EntityTypeMapping TypeName="MezunVsModel.ViewMesaj">
+              <MappingFragment StoreEntitySet="ViewMesaj">
+                <ScalarProperty Name="resim" ColumnName="resim" />
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+                <ScalarProperty Name="isim" ColumnName="isim" />
+                <ScalarProperty Name="mesajOkunma" ColumnName="mesajOkunma" />
+                <ScalarProperty Name="mesajZaman" ColumnName="mesajZaman" />
+                <ScalarProperty Name="mesajIcerik" ColumnName="mesajIcerik" />
+                <ScalarProperty Name="kullaniciIDAlan" ColumnName="kullaniciIDAlan" />
+                <ScalarProperty Name="kullaniciIDGonderen" ColumnName="kullaniciIDGonderen" />
+                <ScalarProperty Name="mesajID" ColumnName="mesajID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paylasims">
+            <EntityTypeMapping TypeName="MezunVsModel.Paylasim">
+              <MappingFragment StoreEntitySet="Paylasim">
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="icerik" ColumnName="icerik" />
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="ogeID" ColumnName="ogeID" />
+                <ScalarProperty Name="grup" ColumnName="grup" />
+                <ScalarProperty Name="paylasimID" ColumnName="paylasimID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yorums">
+            <EntityTypeMapping TypeName="MezunVsModel.Yorum">
+              <MappingFragment StoreEntitySet="Yorum">
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="icerik" ColumnName="icerik" />
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="paylasimID" ColumnName="paylasimID" />
+                <ScalarProperty Name="yorumID" ColumnName="yorumID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

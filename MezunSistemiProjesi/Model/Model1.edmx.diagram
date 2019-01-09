@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="448bfda1a1d9407d953ce49770069df8" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="MezunVsModel.Admin" Width="1.5" PointX="6" PointY="7.5" />
+        <EntityTypeShape EntityType="MezunVsModel.Arkada" Width="1.5" PointX="5.25" PointY="32" />
+        <EntityTypeShape EntityType="MezunVsModel.Bildirimler" Width="1.5" PointX="5.25" PointY="34.75" />
+        <EntityTypeShape EntityType="MezunVsModel.Bolum" Width="1.5" PointX="7.5" PointY="11" />
+        <EntityTypeShape EntityType="MezunVsModel.Departman" Width="1.5" PointX="3" PointY="8.25" />
+        <EntityTypeShape EntityType="MezunVsModel.Engelliler" Width="1.5" PointX="5.25" PointY="37.875" />
+        <EntityTypeShape EntityType="MezunVsModel.Etkinlik" Width="1.5" PointX="9.75" PointY="17.125" />
+        <EntityTypeShape EntityType="MezunVsModel.Isilanlari" Width="1.5" PointX="5.25" PointY="16" />
+        <EntityTypeShape EntityType="MezunVsModel.Isyeri" Width="1.5" PointX="3" PointY="15.625" />
+        <EntityTypeShape EntityType="MezunVsModel.Kullanici" Width="1.5" PointX="3" PointY="20.375" />
+        <EntityTypeShape EntityType="MezunVsModel.KullaniciIsGecmisi" Width="2.125" PointX="5.25" PointY="25.75" />
+        <EntityTypeShape EntityType="MezunVsModel.Mesaj" Width="1.5" PointX="5.25" PointY="22.125" />
+        <EntityTypeShape EntityType="MezunVsModel.OkulFakulte" Width="1.5" PointX="5.25" PointY="11" />
+        <EntityTypeShape EntityType="MezunVsModel.OkunanBolum" Width="1.5" PointX="12.75" PointY="17.75" />
+        <EntityTypeShape EntityType="MezunVsModel.Referan" Width="1.5" PointX="12" PointY="20.875" />
+        <EntityTypeShape EntityType="MezunVsModel.Sehir" Width="1.5" PointX="0.75" PointY="17.25" />
+        <EntityTypeShape EntityType="MezunVsModel.Sektor" Width="1.5" PointX="0.75" PointY="14.375" />
+        <EntityTypeShape EntityType="MezunVsModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MezunVsModel.Universite" Width="1.5" PointX="3" PointY="11" />
+        <EntityTypeShape EntityType="MezunVsModel.Yasaklilar" Width="1.5" PointX="8.25" PointY="22.25" />
+        <AssociationConnector Association="MezunVsModel.FK_Yasaklilar_Admin" />
+        <AssociationConnector Association="MezunVsModel.FK_Arkadas_Kullanici" />
+        <AssociationConnector Association="MezunVsModel.FK_Arkadas_Kullanici1" />
+        <AssociationConnector Association="MezunVsModel.FK_Bildirimler_Kullanici" />
+        <AssociationConnector Association="MezunVsModel.FK_Bolum_OkulFakulte" />
+        <AssociationConnector Association="MezunVsModel.FK_Etkinlik_Bolum" />
+        <AssociationConnector Association="MezunVsModel.FK_OkunanBolum_Bolum" />
+        <AssociationConnector Association="MezunVsModel.FK_Isilanlari_Departman" />
+        <AssociationConnector Association="MezunVsModel.FK_KullaniciIsGecmisi_Departman" />
+        <AssociationConnector Association="MezunVsModel.FK_Engelliler_Kullanici" />
+        <AssociationConnector Association="MezunVsModel.FK_Engelliler_Kullanici1" />
+        <AssociationConnector Association="MezunVsModel.FK_Etkinlik_Kullanici" />
+        <AssociationConnector Association="MezunVsModel.FK_Etkinlik_OkulFakulte" />
+        <AssociationConnector Association="MezunVsModel.FK_Etkinlik_Universite" />
+        <AssociationConnector Association="MezunVsModel.FK_Referans_Etkinlik" />
+        <AssociationConnector Association="MezunVsModel.FK_Isilanlari_Isyeri" />
+        <AssociationConnector Association="MezunVsModel.FK_Isyeri_Sehir" />
+        <AssociationConnector Association="MezunVsModel.FK_Isyeri_Sektor" />
+        <AssociationConnector Association="MezunVsModel.FK_KullaniciIsGecmisi_Isyeri" />
+        <AssociationConnector Association="MezunVsModel.FK_Kullanici_Sehir" />
+        <AssociationConnector Association="MezunVsModel.FK_KullaniciIsGecmisi_Kullanici" />
+        <AssociationConnector Association="MezunVsModel.FK_Mesaj_Kullanici" />
+        <AssociationConnector Association="MezunVsModel.FK_Mesaj_Kullanici1" />
+        <AssociationConnector Association="MezunVsModel.FK_OkunanBolum_Kullanici" />
+        <AssociationConnector Association="MezunVsModel.FK_Referans_Kullanici" />
+        <AssociationConnector Association="MezunVsModel.FK_Yasaklilar_Kullanici" />
+        <AssociationConnector Association="MezunVsModel.FK_OkulFakulte_Universite" />
+        <AssociationConnector Association="MezunVsModel.FK_Universite_Sehir" />
+        <EntityTypeShape EntityType="MezunVsModel.ViewOkul" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MezunVsModel.ViewisBilgisi" Width="1.5" PointX="5.375" PointY="0.75" />
+        <AssociationConnector Association="MezunVsModel.FK_Departman_Isyeri" />
+        <EntityTypeShape EntityType="MezunVsModel.View_1" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MezunVsModel.ViewMesaj" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MezunVsModel.Paylasim" Width="1.5" PointX="5.25" PointY="40.75" />
+        <EntityTypeShape EntityType="MezunVsModel.Yorum" Width="1.5" PointX="7.5" PointY="30.625" />
+        <AssociationConnector Association="MezunVsModel.FK_Paylasim_Kullanici" />
+        <AssociationConnector Association="MezunVsModel.FK_Yorum_Kullanici" />
+        <AssociationConnector Association="MezunVsModel.FK_Yorum_Paylasim" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

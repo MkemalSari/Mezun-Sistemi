@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F1D35012-FD06-44AD-8E50-33E7C37939BB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MezunSistemiProjesi</RootNamespace>
+    <AssemblyName>MezunSistemiProjesi</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="after.wizard.step" />
+    <Content Include="arkOnay.aspx" />
+    <Content Include="cikis.aspx" />
+    <Content Include="denemeAmaclidir.aspx" />
+    <Content Include="image\gbg.jpg" />
+    <Content Include="image\gbg1.jpg" />
+    <Content Include="image\Man.jpg" />
+    <Content Include="image\Woman.jpg" />
+    <Content Include="KayitAdim1.aspx" />
+    <Content Include="KayitAdim2.aspx" />
+    <Content Include="KayitAdim3.aspx" />
+    <Content Include="KayitAdim4.aspx" />
+    <Content Include="KayitAdim5.aspx" />
+    <Content Include="sidebar-menu" />
+    <Content Include="vwd.webinfo" />
+    <Content Include="css\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="css\fonts\fontawesome-webfonte0a5.eot" />
+    <Content Include="css\fonts\fontawesome-webfonte0a5.ttf" />
+    <Content Include="css\fonts\fontawesome-webfonte0a5.woff" />
+    <Content Include="css\fonts\fontawesome-webfonte0a5.woff2" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="css\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="css\fonts\Material-Design-Iconic-Fontd41d.eot" />
+    <Content Include="css\fonts\Material-Design-Iconic-Fontf700.eot" />
+    <Content Include="css\fonts\Material-Design-Iconic-Fontf700.ttf" />
+    <Content Include="css\fonts\Material-Design-Iconic-Fontf700.woff" />
+    <Content Include="css\fonts\picto-foundry-arrows.eot" />
+    <Content Include="css\fonts\picto-foundry-arrows.ttf" />
+    <Content Include="css\fonts\picto-foundry-arrows.woff" />
+    <Content Include="css\fonts\picto-foundry-arrowsd41d.eot" />
+    <Content Include="css\fonts\picto-foundry-clothing.eot" />
+    <Content Include="css\fonts\picto-foundry-clothing.ttf" />
+    <Content Include="css\fonts\picto-foundry-clothing.woff" />
+    <Content Include="css\fonts\picto-foundry-clothingd41d.eot" />
+    <Content Include="css\fonts\picto-foundry-emotions.eot" />
+    <Content Include="css\fonts\picto-foundry-emotions.ttf" />
+    <Content Include="css\fonts\picto-foundry-emotions.woff" />
+    <Content Include="css\fonts\picto-foundry-emotionsd41d.eot" />
+    <Content Include="css\fonts\picto-foundry-food.eot" />
+    <Content Include="css\fonts\picto-foundry-food.ttf" />
+    <Content Include="css\fonts\picto-foundry-food.woff" />
+    <Content Include="css\fonts\picto-foundry-foodd41d.eot" />
+    <Content Include="css\fonts\picto-foundry-general.eot" />
+    <Content Include="css\fonts\picto-foundry-general.ttf" />
+    <Content Include="css\fonts\picto-foundry-general.woff" />
+    <Content Include="css\fonts\picto-foundry-generald41d.eot" />
+    <Content Include="css\fonts\picto-foundry-household.eot" />
+    <Content Include="css\fonts\picto-foundry-household.ttf" />
+    <Content Include="css\fonts\picto-foundry-household.woff" />
+    <Content Include="css\fonts\picto-foundry-householdd41d.eot" />
+    <Content Include="css\fonts\picto-foundry-medical-science.eot" />
+    <Content Include="css\fonts\picto-foundry-medical-science.ttf" />
+    <Content Include="css\fonts\picto-foundry-medical-science.woff" />
+    <Content Include="css\fonts\picto-foundry-medical-scienced41d.eot" />
+    <Content Include="css\fonts\picto-foundry-multimedia.eot" />
+    <Content Include="css\fonts\picto-foundry-multimedia.ttf" />
+    <Content Include="css\fonts\picto-foundry-multimedia.woff" />
+    <Content Include="css\fonts\picto-foundry-multimediad41d.eot" />
+    <Content Include="css\fonts\picto-foundry-nature.eot" />
+    <Content Include="css\fonts\picto-foundry-nature.ttf" />
+    <Content Include="css\fonts\picto-foundry-nature.woff" />
+    <Content Include="css\fonts\picto-foundry-natured41d.eot" />
+    <Content Include="css\fonts\picto-foundry-shopping-finance.eot" />
+    <Content Include="css\fonts\picto-foundry-shopping-finance.ttf" />
+    <Content Include="css\fonts\picto-foundry-shopping-finance.woff" />
+    <Content Include="css\fonts\picto-foundry-shopping-financed41d.eot" />
+    <Content Include="css\fonts\picto-foundry-sports.eot" />
+    <Content Include="css\fonts\picto-foundry-sports.ttf" />
+    <Content Include="css\fonts\picto-foundry-sports.woff" />
+    <Content Include="css\fonts\picto-foundry-sportsd41d.eot" />
+    <Content Include="css\fonts\picto-foundry-vehicle-navigation.eot" />
+    <Content Include="css\fonts\picto-foundry-vehicle-navigation.ttf" />
+    <Content Include="css\fonts\picto-foundry-vehicle-navigation.woff" />
+    <Content Include="css\fonts\picto-foundry-vehicle-navigationd41d.eot" />
+    <Content Include="css\fonts\picto-foundry-weather.eot" />
+    <Content Include="css\fonts\picto-foundry-weather.ttf" />
+    <Content Include="css\fonts\picto-foundry-weather.woff" />
+    <Content Include="css\fonts\picto-foundry-weatherd41d.eot" />
+    <Content Include="css\vendor\fonts\slick.eot" />
+    <Content Include="css\vendor\fonts\slick.ttf" />
+    <Content Include="css\vendor\fonts\slick.woff" />
+    <Content Include="css\vendor\fonts\slickd41d.eot" />
+    <EntityDeploy Include="Model\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="Site1.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="clipboard.png" />
+    <Content Include="css\app\app.css" />
+    <Content Include="css\fonts\fontawesome-webfonte0a5.svg" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="css\fonts\Material-Design-Iconic-Fontf700.svg" />
+    <Content Include="css\fonts\picto-foundry-arrows.svg" />
+    <Content Include="css\fonts\picto-foundry-clothing.svg" />
+    <Content Include="css\fonts\picto-foundry-emotions.svg" />
+    <Content Include="css\fonts\picto-foundry-food.svg" />
+    <Content Include="css\fonts\picto-foundry-general.svg" />
+    <Content Include="css\fonts\picto-foundry-household.svg" />
+    <Content Include="css\fonts\picto-foundry-medical-science.svg" />
+    <Content Include="css\fonts\picto-foundry-multimedia.svg" />
+    <Content Include="css\fonts\picto-foundry-nature.svg" />
+    <Content Include="css\fonts\picto-foundry-shopping-finance.svg" />
+    <Content Include="css\fonts\picto-foundry-sports.svg" />
+    <Content Include="css\fonts\picto-foundry-vehicle-navigation.svg" />
+    <Content Include="css\fonts\picto-foundry-weather.svg" />
+    <Content Include="css\vendor\ajax-loader.gif" />
+    <Content Include="css\vendor\all.css" />
+    <Content Include="css\vendor\fonts\slick.svg" />
+    <Content Include="css\vendor\jquery.minicolors.html" />
+    <Content Include="css\vendor\loading.html" />
+    <Content Include="css\vendor\owl.video.play.html" />
+    <Content Include="css\vendor\select2-spinner.gif" />
+    <Content Include="css\vendor\select2.png" />
+    <Content Include="css\vendor\select2x2.png" />
+    <Content Include="images\food1-full.jpg" />
+    <Content Include="images\food1.jpg" />
+    <Content Include="images\lock-1.jpg" />
+    <Content Include="images\markers\index.html" />
+    <Content Include="images\people\110\guy-1.jpg" />
+    <Content Include="images\people\110\guy-2.jpg" />
+    <Content Include="images\people\110\guy-3.jpg" />
+    <Content Include="images\people\110\guy-4.jpg" />
+    <Content Include="images\people\110\guy-5.jpg" />
+    <Content Include="images\people\110\guy-6.jpg" />
+    <Content Include="images\people\110\guy-9.jpg" />
+    <Content Include="images\people\110\woman-3.jpg" />
+    <Content Include="images\people\110\woman-4.jpg" />
+    <Content Include="images\people\110\woman-5.jpg" />
+    <Content Include="images\people\110\woman-6.jpg" />
+    <Content Include="images\people\110\woman-7.jpg" />
+    <Content Include="images\people\110\woman-8.jpg" />
+    <Content Include="images\people\110\woman-9.jpg" />
+    <Content Include="images\people\50\guy-1.jpg" />
+    <Content Include="images\people\50\guy-2.jpg" />
+    <Content Include="images\people\50\guy-3.jpg" />
+    <Content Include="images\people\50\guy-4.jpg" />
+    <Content Include="images\people\50\guy-5.jpg" />
+    <Content Include="images\people\50\guy-6.jpg" />
+    <Content Include="images\people\50\guy-7.jpg" />
+    <Content Include="images\people\50\guy-8.jpg" />
+    <Content Include="images\people\50\guy-9.jpg" />
+    <Content Include="images\people\50\woman-1.jpg" />
+    <Content Include="images\people\50\woman-2.jpg" />
+    <Content Include="images\people\50\woman-3.jpg" />
+    <Content Include="images\people\50\woman-4.jpg" />
+    <Content Include="images\people\50\woman-5.jpg" />
+    <Content Include="images\people\50\woman-6.jpg" />
+    <Content Include="images\people\50\woman-7.jpg" />
+    <Content Include="images\people\50\woman-9.jpg" />
+    <Content Include="images\place1-full.jpg" />
+    <Content Include="images\place1.jpg" />
+    <Content Include="images\place2-full.jpg" />
+    <Content Include="images\place2.jpg" />
+    <Content Include="images\profile-cover.jpg" />
+    <Content Include="images\social\100\1.jpg" />
+    <Content Include="images\social\100\2.jpg" />
+    <Content Include="images\social\100\3.jpg" />
+    <Content Include="js\app\app.js" />
+    <Content Include="js\vendor\all.js" />
+    <Content Include="js\vendor\maps\google\jquery-ui-map\addons\infobox_packed.js" />
+    <Content Include="js\vendor\maps\google\jquery-ui-map\addons\markerclusterer.min.js" />
+    <Content Include="js\vendor\maps\google\jquery-ui-map\ui\jquery.ui.map.extensions.js" />
+    <Content Include="js\vendor\maps\google\jquery-ui-map\ui\jquery.ui.map.microdata.js" />
+    <Content Include="js\vendor\maps\google\jquery-ui-map\ui\jquery.ui.map.microformat.js" />
+    <Content Include="js\vendor\maps\google\jquery-ui-map\ui\jquery.ui.map.overlays.js" />
+    <Content Include="js\vendor\maps\google\jquery-ui-map\ui\jquery.ui.map.rdfa.js" />
+    <Content Include="js\vendor\maps\google\jquery-ui-map\ui\jquery.ui.map.services.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Onay.aspx" />
+    <Content Include="Popover requires tooltip.js" />
+    <Content Include="SifremiUnuttum.aspx" />
+    <Content Include="styles\_apple.html" />
+    <Content Include="styles\_blue-gray.html" />
+    <Content Include="styles\_clean-cut.html" />
+    <Content Include="styles\_cool-grey.html" />
+    <Content Include="styles\_lemon-tree.html" />
+    <Content Include="styles\_light-green.html" />
+    <Content Include="styles\_light-grey.html" />
+    <Content Include="styles\_light-monochrome.html" />
+    <Content Include="styles\_nature.html" />
+    <Content Include="styles\_paper.html" />
+    <Content Include="Web.config" />
+    <Content Include="Profil.aspx" />
+    <Content Include="mesajlar.aspx" />
+    <Content Include="Duzenle.aspx" />
+    <Content Include="Gruplar.aspx" />
+    <Content Include="Grup.aspx" />
+    <Content Include="_breakpoints.js" />
+    <Content Include="_gridalicious.js" />
+    <Content Include="_library.js" />
+    <Content Include="_scrollable.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="arkOnay.aspx.cs">
+      <DependentUpon>arkOnay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="arkOnay.aspx.designer.cs">
+      <DependentUpon>arkOnay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cikis.aspx.cs">
+      <DependentUpon>cikis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cikis.aspx.designer.cs">
+      <DependentUpon>cikis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="denemeAmaclidir.aspx.cs">
+      <DependentUpon>denemeAmaclidir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="denemeAmaclidir.aspx.designer.cs">
+      <DependentUpon>denemeAmaclidir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KayitAdim1.aspx.cs">
+      <DependentUpon>KayitAdim1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KayitAdim1.aspx.designer.cs">
+      <DependentUpon>KayitAdim1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KayitAdim2.aspx.cs">
+      <DependentUpon>KayitAdim2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KayitAdim2.aspx.designer.cs">
+      <DependentUpon>KayitAdim2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KayitAdim3.aspx.cs">
+      <DependentUpon>KayitAdim3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KayitAdim3.aspx.designer.cs">
+      <DependentUpon>KayitAdim3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KayitAdim4.aspx.cs">
+      <DependentUpon>KayitAdim4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KayitAdim4.aspx.designer.cs">
+      <DependentUpon>KayitAdim4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KayitAdim5.aspx.cs">
+      <DependentUpon>KayitAdim5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KayitAdim5.aspx.designer.cs">
+      <DependentUpon>KayitAdim5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Admin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Arkada.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Bildirimler.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Bolum.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Departman.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Engelliler.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etkinlik.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Isilanlari.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Isyeri.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Kullanici.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KullaniciIsGecmisi.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mesaj.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OkulFakulte.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OkunanBolum.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Paylasim.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Referan.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Sehir.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Sektor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Universite.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewisBilgisi.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewMesaj.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewOkul.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\View_1.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Yasaklilar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Yorum.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Onay.aspx.cs">
+      <DependentUpon>Onay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Onay.aspx.designer.cs">
+      <DependentUpon>Onay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SifremiUnuttum.aspx.cs">
+      <DependentUpon>SifremiUnuttum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SifremiUnuttum.aspx.designer.cs">
+      <DependentUpon>SifremiUnuttum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Profil.aspx.cs">
+      <DependentUpon>Profil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profil.aspx.designer.cs">
+      <DependentUpon>Profil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mesajlar.aspx.cs">
+      <DependentUpon>mesajlar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mesajlar.aspx.designer.cs">
+      <DependentUpon>mesajlar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Duzenle.aspx.cs">
+      <DependentUpon>Duzenle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Duzenle.aspx.designer.cs">
+      <DependentUpon>Duzenle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gruplar.aspx.cs">
+      <DependentUpon>Gruplar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gruplar.aspx.designer.cs">
+      <DependentUpon>Gruplar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Grup.aspx.cs">
+      <DependentUpon>Grup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Grup.aspx.designer.cs">
+      <DependentUpon>Grup.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>11274</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:11274/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
